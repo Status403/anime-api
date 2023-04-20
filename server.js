@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express')
 const mongoose = require('mongoose')
 const Episode = require('./models/episode');
@@ -20,7 +21,7 @@ app.get('/episode', async(req, res) => {
 })
 
 mongoose.
-connect('mongodb+srv://marcdecker2004:eRvzSQdpxKdEnhwj@onepiece.mcz9z2w.mongodb.net/onepiece')
+connect(process.env.CONN_STRING)
 .then(() => {
     console.log('connected to MongoDB')
     app.listen(PORT, () => {
