@@ -10,8 +10,8 @@ app.use(express.urlencoded({ extended: true}));
 
 app.get('/episode', async(req, res) => {
     try {
-        const s = req.body.season;
-        const e = req.body.episode;
+        const s = req.params.season;
+        const e = req.params.episode;
         if (!e || !s) {
             throw Error('Need Season and Episode params!')
         }
