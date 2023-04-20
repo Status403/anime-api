@@ -16,7 +16,7 @@ app.get('/episode', async(req, res) => {
             throw Error('Need Season and Episode params!')
         }
         const episode = await Episode.findOne({'season': s, 'episode': e});
-        res.status(200).send(episode);
+        res.status(200).json(episode);
     } catch (error) {
         console.log(error)
         res.status(500).json({message: error.message})
